@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# Bash script that displays To infinity and beyond
+# kills the infinity and beyond  program using sigkill signal
 
-while :
-do
-	echo "To infinity and beyond"
-	sleep 2
-done
+# Get the pid of the program
+id=$(pgrep "bash ./4-to_infinity_and_beyond" -f)
+
+# Terminate the infinate process
+if [ -n "$id" ]
+then
+	  kill -15 "$id"
+fi
